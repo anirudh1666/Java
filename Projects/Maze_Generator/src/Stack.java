@@ -15,13 +15,9 @@ public class Stack {
         this.stack = new ArrayList<ArrayList<Integer>>();
     }
 
-    public void push(Node node) {
+    public void push(ArrayList<Integer> cell) {
 
-        ArrayList<Integer> tuple = new ArrayList<>();
-        tuple.add(node.get_x());
-        tuple.add(node.get_y());
-
-        this.stack.add(tuple);
+        this.stack.add(cell);
     }
 
     // Throws error if stack is empty and you try to pop.

@@ -55,6 +55,15 @@ public class Main {
         graph.get(start.get(0)).get(start.get(1)).start_or_end();
         graph.get(end.get(0)).get(end.get(1)).start_or_end();
 
+        Stack stack = new Stack();
+        stack.push(start);
+
+        // Loop until you backtrack to start aka stack is empty.
+        while (!stack.is_empty())  {
+            // Depth first search until you encounter a cell where all its neighbours
+            // are visited. Then using stack back track until you reach a node that
+            // has unvisited neighours. in the process pop the nodes off. 
+        }
         return null;
     }
 
