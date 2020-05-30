@@ -17,7 +17,7 @@ public class Node {
     private boolean start_or_end;
     // An edge represents path from this node to edge node.
     private ArrayList<Node> edges;
-    // Arraylist of [x,y] coordinates of its neighbouring cells.
+    // Arraylist of [x,y] coordinates of its unvisited neighbouring cells.
     // Has [[x-1,y], [x,y-1], [x+1, y], [x, y+1].
     private ArrayList<ArrayList<Integer>> neighbours;
 
@@ -61,14 +61,30 @@ public class Node {
         this.start_or_end = true;
     }
 
-    public ArrayList<Integer> get_random() {
+    public ArrayList<Integer> get_random_unvisited(ArrayList<ArrayList<Node>> graph) {
 
+        ArrayList<Integer> neighbour = new ArrayList<>();
         Random random = new Random();
-        int index = random.nextInt(this.neighbours.size());
-        ArrayList<Integer> ret = this.neighbours.get(index);
-        this.neighbours.remove(index);
+        boolean found = false;
 
-        return ret;
+        while (!found) {
+
+            if (this.neighbours.size() == 0) {
+                // No unvisited neighbours left.
+                return null;
+            }
+
+            int index = random.nextInt(this.neighbours.size()) & Integer.MAX_VALUE;
+            neighbour = this.neighbours.get(index);
+            this.neighbours.remove(index);
+
+            // Check if it is visited or not.
+            if (!graph.get(neighbour.get(0)).get(neighbour.get(1)).is_visited()) {
+                found = true;
+            }
+        }
+
+        return neighbour;
     }
 
     public boolean is_empty() {

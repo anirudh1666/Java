@@ -9,7 +9,7 @@ public class Tests {
 
     public void test_build_maze(Main obj) {
 
-        ArrayList<ArrayList<Node>> graph = obj.init_graph(5,5);
+        ArrayList<ArrayList<Node>> graph = obj.init_graph(10,10);
         obj.build_maze(graph);
         print_graph(graph);
     }

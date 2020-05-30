@@ -81,8 +81,6 @@ public class Main {
         ArrayList<Integer> start = generate_start(graph.size(), graph.get(0).size());
         ArrayList<Integer> end = generate_end(graph.size(), graph.get(0).size(), start);
 
-        System.out.println("Start: " + start.get(0) + ", " + start.get(1));
-        System.out.println("End: " + end.get(0) + ", " + end.get(1));
         // Set nodes at graph [start_x, start_y] as starting or finishing nodes.
         graph.get(start.get(0)).get(start.get(1)).start_or_end();
         graph.get(end.get(0)).get(end.get(1)).start_or_end();
@@ -90,115 +88,79 @@ public class Main {
         Stack stack = new Stack();
         stack.push(start);
         Node current = graph.get(start.get(0)).get(start.get(1));
+        dfs(current, stack, graph);
+
+        System.out.println("Start: " + start.get(0) + ", " + start.get(1));
+        System.out.println("End: " + end.get(0) + ", " + end.get(1));
 
         // Loop until you backtrack to start aka stack is empty.
-        while (!stack.is_empty())  {
-            // Depth first search until you encounter a cell where all its neighbours
-            // are visited. Then using stack back track until you reach a node that
-            // has unvisited neighours. in the process pop the nodes off.
-            dfs(current, stack, graph);
-        }
+        //while (!stack.is_empty())  {
+        // Depth first search until you encounter a cell where all its neighbours
+        // are visited. Then using stack back track until you reach a node that
+        // has unvisited neighours. in the process pop the nodes off.
+        //   dfs(current, stack, graph);
+        //}
 
         return graph;
     }
 
-    /* This is a depth first search algorithm.
-       @params = at : node we are currently at.
-                 stack : stack keeping track of nodes we visited so we can backtrack.
-     */
-    private void dfs(Node at, Stack stack, ArrayList<ArrayList<Node>> graph) {
+    private void dfs(Node start, Stack stack, ArrayList<ArrayList<Node>> graph) {
 
-        if (at.is_visited()) {
-            // This node has already been visited. Pop it off stack and backtrack.
-            stack.pop();
-            return;
-        }
+        start.visited();
+        while (!stack.is_empty()) {
+            ArrayList<Integer> cur = stack.pop();
+            Node cur_node = graph.get(cur.get(0)).get(cur.get(1));
 
-        at.visited();
-        // Pick random neighbour and do dfs on it. Repeat until all neighbours have been visited.
-        while (!at.is_empty()) {
-            // Coordinates of neighbour picked randomly.
-            ArrayList<Integer> random_neigh = at.get_random();
-            // Get corresponding node.
-            Node next = graph.get(random_neigh.get(0)).get(random_neigh.get(1));
-            // Make sure to push to stack and update edge to.
-            stack.push(random_neigh);
-            at.add_edge(next);
-            dfs(next, stack, graph);
+            ArrayList<Integer> get_unvisited_neigh = cur_node.get_random_unvisited(graph);
+            if (get_unvisited_neigh != null) {
+                stack.push(cur);
+                Node neighbour = graph.get(get_unvisited_neigh.get(0)).get(get_unvisited_neigh.get(1));
+                cur_node.add_edge(neighbour);
+                neighbour.visited();
+                stack.push(get_unvisited_neigh);
+            }
         }
     }
 
-    /* First randomly decide if x is going to be 0 or nonzero.
-       If x == 0 then y can be nonzero and vice versa.
-       @returns = arraylist containing [x,y] coordinates.
+
+    /* Works by deciding which side the entry will be then randomly generating
+       the free coordinate.
+       @params = row_count : number of rows.
+                 col_count : number of columns.
+       @returns = arraylist containing [x,y,side] coordinates.
      */
     private ArrayList<Integer> generate_start(int row_count, int col_count) {
 
         ArrayList<Integer> ret = new ArrayList<>();
         Random random = new Random();
-        boolean is_zero = random.nextBoolean();
+        int side = random.nextInt(4);
 
-        if (is_zero) {
-            // X == 0 and y is nonzero.
-            ret.add(0);
-            Integer y = random.nextInt(col_count);
-            ret.add(y);
-
-        }
-        else {
-            // x is nonzero and y == 0.
-            Integer x = random.nextInt(row_count);
-            ret.add(x);
-            ret.add(0);
+        switch (side) {
+            // Number from 0 - 3 corresponds to which side the start will be.
+            // 1 == leftmost side, 0 = top side, 3 = right side, 2 = bottom.
+            case 0 : ret.add(0); ret.add(random.nextInt(col_count)); ret.add(0); break;
+            case 1 : ret.add(random.nextInt(row_count)); ret.add(0); ret.add(1); break;
+            case 2 : ret.add(random.nextInt(row_count)); ret.add(col_count - 1); ret.add(2); break;
+            case 3 : ret.add(row_count - 1); ret.add(random.nextInt(col_count)); ret.add(3); break;
+            default : break;
         }
 
         return ret;
     }
 
     /* Generates end cell similarly to generate_start but makes sure
-       it doesnt make the maze end at the same place as start.
+       it doesnt make the maze end at the same place as start or near to it.
+       For now we will try to make it land it on a different side to the start.
        @params = start : arraylist containing coordinates of start.
        @returns = arraylist containing coordinates of end cell.
      */
     private ArrayList<Integer> generate_end(int row_count, int col_count, ArrayList<Integer> start) {
 
-        ArrayList<Integer> ret = new ArrayList<>();
-        Random random = new Random();
-        boolean is_zero = random.nextBoolean();
+        ArrayList<Integer> ret = generate_start(row_count, col_count);
 
-        if (is_zero) {
-            ret.add(0);
-            Integer y = start.get(1);
-
-            if (start.get(0) == 0) {
-                // Starting x coordinate == 0.
-                while (y == start.get(1)) {
-                    // Until you get y that isnt equal to starting y.
-                    y = random.nextInt(col_count);
-                }
-            }
-            else {
-                y = random.nextInt(col_count);
-            }
-
-            ret.add(y);
-        }
-        else {
-            Integer x = start.get(0);
-            Integer y = 0;
-
-            if (start.get(1) == 0) {
-                // y == 0 so generate x until you get x that isnt same as starting x.
-                while (x == start.get(0)) {
-                    x = random.nextInt(row_count);
-                }
-            }
-            else {
-                x = random.nextInt(row_count);
-            }
-
-            ret.add(x);
-            ret.add(y);
+        while (ret.get(2).equals(start.get(2))) {
+            // If they are on same side.
+            ret = generate_start(row_count, col_count);
         }
 
         return ret;
