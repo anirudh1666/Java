@@ -3,23 +3,32 @@
    and if it has been visited yet.
  */
 
+import java.util.Random;
 import java.util.ArrayList;
 
 public class Node {
 
+    // (x,y) coordinates. X = row number, y = column number.
     private int x_coord;
     private int y_coord;
+    // If this has been visited before.
     private boolean visited;
+    // If this is start or end node.
     private boolean start_or_end;
+    // An edge represents path from this node to edge node.
     private ArrayList<Node> edges;
+    // Arraylist of [x,y] coordinates of its neighbouring cells.
+    // Has [[x-1,y], [x,y-1], [x+1, y], [x, y+1].
+    private ArrayList<ArrayList<Integer>> neighbours;
 
-    public Node(int x, int y) {
+    public Node(int x, int y, ArrayList<ArrayList<Integer>> neighbours) {
 
         this.x_coord = x;
         this.y_coord = y;
         this.edges = new ArrayList<Node>();
-        visited = false;
-        start_or_end = false;
+        this.visited = false;
+        this.start_or_end = false;
+        this.neighbours = neighbours;
     }
 
     public int get_x() {
@@ -37,6 +46,11 @@ public class Node {
         this.visited = true;
     }
 
+    public boolean is_visited() {
+
+        return this.visited;
+    }
+
     public ArrayList<Node> get_edges() {
 
         return this.edges;
@@ -45,5 +59,25 @@ public class Node {
     public void start_or_end() {
 
         this.start_or_end = true;
+    }
+
+    public ArrayList<Integer> get_random() {
+
+        Random random = new Random();
+        int index = random.nextInt(this.neighbours.size());
+        ArrayList<Integer> ret = this.neighbours.get(index);
+        this.neighbours.remove(index);
+
+        return ret;
+    }
+
+    public boolean is_empty() {
+
+        return this.neighbours.size() == 0;
+    }
+
+    public void add_edge(Node node) {
+
+        this.edges.add(node);
     }
 }

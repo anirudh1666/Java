@@ -11,6 +11,7 @@ public class Tests {
 
         ArrayList<ArrayList<Node>> graph = obj.init_graph(5,5);
         obj.build_maze(graph);
+        print_graph(graph);
     }
 
     public void test_init_graph(Main obj) {
@@ -27,9 +28,19 @@ public class Tests {
                 // Iterate through column.
                 Integer x = graph.get(i).get(j).get_x();
                 Integer y = graph.get(i).get(j).get_y();
+                ArrayList<Node> edges = graph.get(i).get(j).get_edges();
 
-                String tuple = "(".concat(x.toString()).concat(", ").concat(y.toString()).concat(")");
-                System.out.println(tuple);
+                String tuple = "(".concat(x.toString()).concat(", ").concat(y.toString()).concat("),");
+                System.out.print(tuple + " Paths: ");
+
+                for (Node edge : edges) {
+                    // Build string with info about paths.
+                    Integer edge_x = edge.get_x();
+                    Integer edge_y = edge.get_y();
+                    String path = "(".concat(edge_x.toString()).concat(", ").concat(edge_y.toString()).concat(") ");
+                    System.out.print(path);
+                }
+                System.out.println();
             }
         }
     }
