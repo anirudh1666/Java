@@ -1,4 +1,5 @@
-## MAZE GENERATOR ##
+# MAZE GENERATOR by Anirudh Lakra #
+-------
 
 **Maze generator** is the precursor program for the Maze Generator web application.
 
@@ -38,3 +39,5 @@ You can find the algorithm on wikipedia [here](https://en.wikipedia.org/wiki/Maz
 
 **Result** 
 - Managed to make a representation of the maze in the form of a 2D arraylist of nodes. However, not sure yet how to display the maze to the user.
+- The maze can be rectangular or square, both work. 
+- The difficulty of the maze can be altered by changing the number of cells in the maze. More cells = higher difficulty.

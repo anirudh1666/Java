@@ -15,9 +15,9 @@ public class Main {
      */
     public ArrayList<ArrayList<Node>> init_graph(int len_x, int len_y) {
 
-        if (len_x >= 40 || len_y >= 40) {
+        if (len_x >= 40 || len_y >= 40 || len_x <= 0 || len_y <= 0) {
             // Out of bounds len_y or len_y.
-            throw new IndexOutOfBoundsException("Maze parameters are too large.");
+            throw new IndexOutOfBoundsException("Maze parameters are out of bounds.");
         }
 
         ArrayList<ArrayList<Node>> graph = new ArrayList<>();
