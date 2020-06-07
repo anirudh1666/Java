@@ -42,14 +42,14 @@ public class Cell {
     // @returns = true if cell is visited else false.
     public boolean is_visited() { return this.visited; }
 
+    // @returns = true if cell is start or end node.
+    public boolean is_start_or_end() { return this.start_or_end; }
+
     // @returns = ArrayList of neighbouring cell that this cell has a path to.
     public ArrayList<ArrayList<Integer>> get_edges() { return this.edges; }
 
     // Sets this cell as a starting or end cell
     public void start_or_end() { this.start_or_end = true; }
-
-    // @returns = true if cell has no unvisited neighbours, else false.
-    public boolean is_empty() { return this.neighbours.size() == 0; }
 
     // Adds an [row_num, col_num] of neighbouring cell to this.edges.
     public void add_edge(ArrayList<Integer> cell) { this.edges.add(cell); }

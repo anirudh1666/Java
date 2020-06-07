@@ -87,10 +87,6 @@ public class Node {
         return neighbour;
     }
 
-    public boolean is_empty() {
-
-        return this.neighbours.size() == 0;
-    }
 
     public void add_edge(Node node) {
 
