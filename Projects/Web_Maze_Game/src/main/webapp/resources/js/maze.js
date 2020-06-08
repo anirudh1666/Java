@@ -125,4 +125,4 @@ function color_special(special_cells, cell_dimensions) {
     ctx.moveTo(end_x, end_y);
     ctx.lineTo(end_x, end_y + line_width);
     ctx.stroke();
-} 
+}

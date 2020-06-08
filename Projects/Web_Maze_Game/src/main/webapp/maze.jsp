@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="ucl.ac.uk.main.Classes.*"
+<%@ page import="ucl.ac.uk.main.Classes.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -8,8 +8,8 @@
     <meta name="Maze Game" content="Maze game with levels">
     <meta name="Author" content="Anirudh Lakra">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles">
-    <script src="maze.js"></script>
+    <link rel = "stylesheet" type="text/css" href="%{pageContext.request.contextPath}/resources/css/styles.css">
+    <script src="resources/js/maze.js"></script>
 </head>
 <body>
 <div id="heading-box">
@@ -23,12 +23,12 @@
     %>
     <script type="text/javascript" src="maze.js">
         var special_cells = new Array();
-        var maze = new Array();
+        var maze_js = new Array();
             for (var i = 0; i != row_num; ++i) {
                 maze[i] = new Array();
             }
 
-        <% for (int i = 0; i != maze.size(); ++i) {
+        <% for (int i = 0; i !=  maze.size() ; ++i) {
             for (int j = 0; j != maze.get(0).size(); ++j) {
                 Cell cell = maze.get(i).get(j);
                 ArrayList<ArrayList<Integer>> edges = cell.get_edges();
@@ -45,17 +45,17 @@
                     neighbours[<%= k %>] = neigh;
                 <% } %>
 
-                var start_or_end = <%= cell.is_start_or_end %>;
+                var start_or_end = <%= cell.is_start_or_end() %>;
                 var cell = new Cell(row, col, neighbours, start_or_end);
 
-                maze[<%= i %>][<%= j %>] = cell;
+                maze_js[<%= i %>][<%= j %>] = cell;
 
                 if (start_or_end) {
                     special_cells.push([row, col]);
             <% }
         } %>
 
-        draw_maze(maze, special_cells);
+        draw_maze(maze_js, special_cells);
     </script>
 </body>
 </html>

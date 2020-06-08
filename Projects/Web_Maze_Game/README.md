@@ -1,6 +1,8 @@
 #Maze Web Game#
 ----
 
+#Was unable to finish this project. Wasn't able to link the frontend with the backend. I'll comeback to this when I'm motivated to complete it.#
+
 ##Goals##
 ----
 
