@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c408757-8ad1-4bcf-88c3-33c88649b8bf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1m3QWGJOWBdQbaHbyaLR8shRo3d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Java/JavaCW3" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="comp0008.Main" />
+      <module name="MultithreadedAdder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="comp0008.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c408757-8ad1-4bcf-88c3-33c88649b8bf" name="Default Changelist" comment="" />
+      <created>1608719824915</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608719824915</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="208" y="137" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609149513790">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="208" y="137" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1504.963@0.0.1504.963" timestamp="1609149513790" />
+    <state width="1461" height="221" key="GridCell.Tab.0.bottom" timestamp="1611154686259">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="221" key="GridCell.Tab.0.bottom/0.0.1504.963@0.0.1504.963" timestamp="1611154686259" />
+    <state width="1461" height="221" key="GridCell.Tab.0.center" timestamp="1611154686258">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="221" key="GridCell.Tab.0.center/0.0.1504.963@0.0.1504.963" timestamp="1611154686258" />
+    <state width="1461" height="221" key="GridCell.Tab.0.left" timestamp="1611154686258">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="221" key="GridCell.Tab.0.left/0.0.1504.963@0.0.1504.963" timestamp="1611154686258" />
+    <state width="1461" height="221" key="GridCell.Tab.0.right" timestamp="1611154686258">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="221" key="GridCell.Tab.0.right/0.0.1504.963@0.0.1504.963" timestamp="1611154686258" />
+    <state width="1461" height="317" key="GridCell.Tab.1.bottom" timestamp="1609152936827">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.1.bottom/0.0.1504.963@0.0.1504.963" timestamp="1609152936827" />
+    <state width="1461" height="317" key="GridCell.Tab.1.center" timestamp="1609152936827">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.1.center/0.0.1504.963@0.0.1504.963" timestamp="1609152936827" />
+    <state width="1461" height="317" key="GridCell.Tab.1.left" timestamp="1609152936827">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.1.left/0.0.1504.963@0.0.1504.963" timestamp="1609152936827" />
+    <state width="1461" height="317" key="GridCell.Tab.1.right" timestamp="1609152936827">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.1.right/0.0.1504.963@0.0.1504.963" timestamp="1609152936827" />
+    <state x="449" y="306" key="com.intellij.ide.util.TipDialog" timestamp="1611152058924">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="449" y="306" key="com.intellij.ide.util.TipDialog/0.0.1504.963@0.0.1504.963" timestamp="1611152058924" />
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1609149543733">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1609149543733" />
+  </component>
+</project>
